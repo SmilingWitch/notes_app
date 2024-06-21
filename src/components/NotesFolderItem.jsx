@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native"
 import StyledText from "./StyledText"
 import Ionaicons from '@expo/vector-icons/Ionicons'
-import theme from "./theme"
+import theme from "../theme"
 
 const NotesFolderItem = ({name, amount}) => {
     return(

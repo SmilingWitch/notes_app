@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet,Dimensions } from "react-native"
 import Constants from 'expo-constants'
-import theme from "./theme"
+import theme from "../theme"
 
 import {Routes,Route, Navigate} from "react-router-native"
 import NotesFolder from "../pages/NotesFolder"
