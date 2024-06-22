@@ -1,13 +1,13 @@
 import { View, StyleSheet } from "react-native"
 import StyledText from "./StyledText"
-import Ionaicons from '@expo/vector-icons/Ionicons'
+import Icon from '@expo/vector-icons/AntDesign'
 import theme from "../theme"
 
 const NotesFolderHeader = () => {
     return (
         <View style = {styles.header}>
             <StyledText fontSize='h1' fontWeight='bold'>My Notes</StyledText>
-            <Ionaicons name = "menu" style = {styles.icon}></Ionaicons>
+            <Icon name="ellipsis1" style = {styles.icon}></Icon>
         </View>
 
     )
