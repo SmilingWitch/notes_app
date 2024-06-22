@@ -1,6 +1,7 @@
 import { FlatList, View } from "react-native"
 import NotesFolder from "./NotesFolderItem"
 import NotesFolderItem from "./NotesFolderItem"
+import theme from "../theme"
 
 const data = [
     {
@@ -35,7 +36,7 @@ const data = [
 const NotesFolderList = () => {
     
     const renderItem = ({item}) => (
-        <NotesFolderItem name = {item.name} amount = {item.amount} to = {'/note'}></NotesFolderItem>
+        <NotesFolderItem name = {item.name} amount = {item.amount} to = {'/notes'}></NotesFolderItem>
     )
 
 
@@ -43,8 +44,9 @@ const NotesFolderList = () => {
         
             <FlatList data = {data}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.id}>
-
+                keyExtractor={(item) => item.id}
+                style = {{paddingHorizontal: theme.padding}}>
+                
             </FlatList>
         
         
