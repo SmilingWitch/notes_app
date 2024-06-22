@@ -3,30 +3,26 @@ import StyledText from "./StyledText"
 import Icon from '@expo/vector-icons/AntDesign'
 import theme from "../theme"
 import { Link } from "react-router-native"
+import ScrollCategories from "./ScrollCategories"
 
 const NotesItemHeader = () => {
     return(
-        <View style = {styles.container}>
+        <View >
             <View style = {styles.name}>
                 <Link to = '/'>
                     <Icon name = "arrowleft" style = {styles.icon}></Icon>
                 </Link>
-                
-                <StyledText fontSize='h1' fontWeight='bold' style = {styles.text}>Header</StyledText> 
+                <StyledText fontSize='h2' fontWeight='bold' style = {styles.text}>Folder Name</StyledText> 
             </View>
-            <Icon name = "search1" style = {styles.icon}></Icon>
-            
+            <View>
+                <ScrollCategories/>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
-        paddingVertical: 20,
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexDirection: 'row'
-    },
+
     icon: {
         color: theme.colors.textPrimary,
         fontSize: theme.fontSize.h2
@@ -34,6 +30,10 @@ const styles = StyleSheet.create({
     name: {
         flexDirection: 'row',
         alignItems: 'center',
+        paddingVertical: 20,
+        alignItems: 'center',
+        flexDirection: 'row',
+        paddingHorizontal: theme.padding
     
     },
     text: {
