@@ -1,6 +1,7 @@
 import { FlatList, StyleSheet, useWindowDimensions } from "react-native"
 import NotesItem from "./NotesItem"
 import { useEffect, useState } from "react";
+import theme from "../theme";
 
 const data = [
     {
@@ -42,12 +43,11 @@ const NotesList = () => {
     }, [width]);
 
     const renderItem = ({item}) => (
-        <NotesItem id = {item.id}></NotesItem>
+        <NotesItem id = {item.id} to = '/note'></NotesItem>
     )
 
     return(
         <FlatList
-            
             data = {data}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
@@ -61,7 +61,8 @@ const NotesList = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-       justifyContent: 'space-between'
+       justifyContent: 'space-between',
+       paddingHorizontal: theme.padding
     }
 })
 
