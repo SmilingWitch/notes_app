@@ -4,13 +4,17 @@ import theme from "../theme"
 
 import {Routes,Route, Navigate} from "react-router-native"
 import NotesFolder from "../pages/NotesFolder"
+import Notes from "../pages/Notes"
 
 const Main = () => {
     return(
         <View style = {styles.container}>
           
-            
-          <NotesFolder/>
+            <Routes>
+              <Route path = '/' element = {<NotesFolder/>}/>
+              <Route path = '/note' element = {<Notes/>}/>
+            </Routes>
+          
             
         </View>
     )
