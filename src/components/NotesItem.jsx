@@ -1,27 +1,28 @@
-import { View,StyleSheet, Dimensions } from "react-native"
+import { View,StyleSheet, Dimensions, TouchableOpacity } from "react-native"
 import StyledText from "./StyledText"
 import theme from "../theme"
 import Icon from '@expo/vector-icons/AntDesign'
+import { Link } from "react-router-native"
 
 
-const NotesItem = ({id}) => {
+const NotesItem = ({id, to}) => {
     return(
-        <View style = {styles.container}>
-            <View style = {styles.header}>
-                <StyledText fontSize='h2' fontWeight='bold'>Name</StyledText>
-                <Icon name="pushpino" style = {styles.icon}></Icon>
-            </View>
-            <View style = {styles.text}>
-                <StyledText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa voluptatem facere qui suscipit architecto ipsam, consequuntur facilis voluptatibus sint accusantium iste inventore earum officiis! </StyledText> 
-            </View>
+        <Link to = {to} style = {styles.container} component = {TouchableOpacity}>
+            <>
+                <View style = {styles.header}>
+                    <StyledText fontSize='h2' fontWeight='bold'>Name</StyledText>
+                    <Icon name="pushpino" style = {styles.icon}></Icon>
+                </View>
+                <View style = {styles.text}>
+                    <StyledText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa voluptatem facere qui suscipit architecto ipsam, consequuntur facilis voluptatibus sint accusantium iste inventore earum officiis! </StyledText> 
+                </View>
+                <View style = {styles.footer}>
+                    <StyledText fontSize='small'>07 APril 2024</StyledText>
+                    <Icon name="ellipsis1" style = {styles.icon}></Icon>
+                </View>
+            </>
             
-
-            <View style = {styles.footer}>
-                <StyledText fontSize='small'>07 APril 2024</StyledText>
-                <Icon name="ellipsis1" style = {styles.icon}></Icon>
-
-            </View>
-        </View>
+        </Link>
     )
 }
 
@@ -29,10 +30,9 @@ const NotesItem = ({id}) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.grey,
-        minHeight: 150,
-        maxHeight: 300,
+        minHeight: 200,
         width: Dimensions.get('window').width / 2.2 ,
-        marginBottom: 10,
+        marginBottom: 12,
         borderRadius: 20,
         padding: 10
     },
