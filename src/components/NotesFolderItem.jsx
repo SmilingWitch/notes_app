@@ -1,4 +1,4 @@
-import { View, StyleSheet, TouchableOpacity} from "react-native"
+import { View, StyleSheet, TouchableOpacity, Dimensions} from "react-native"
 import StyledText from "./StyledText"
 import Ionaicons from '@expo/vector-icons/Ionicons'
 import theme from "../theme"
@@ -25,7 +25,7 @@ const NotesFolderItem = ({name, amount, to}) => {
 const styles = StyleSheet.create({
         container: {
             backgroundColor: theme.colors.grey,
-            minHeight: 150,
+            height: 150,
             marginBottom: 10,
             padding: 20,
             justifyContent: 'space-between',
