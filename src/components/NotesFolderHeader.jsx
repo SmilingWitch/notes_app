@@ -6,7 +6,7 @@ import theme from "../theme"
 const NotesFolderHeader = () => {
     return (
         <View style = {styles.header}>
-            <StyledText fontSize='h1' fontWeight='bold'>My Notes</StyledText>
+            <StyledText fontSize='h2' fontWeight='bold'>Folders</StyledText>
             <Icon name="ellipsis1" style = {styles.icon}></Icon>
         </View>
 
@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         alignItems: 'center',
         justifyContent: 'space-between',
-        flexDirection: 'row'
+        flexDirection: 'row', 
+        paddingHorizontal: theme.padding
       },
       icon: {
         color: theme.colors.textPrimary,
