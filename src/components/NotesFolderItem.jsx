@@ -1,20 +1,25 @@
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, TouchableOpacity} from "react-native"
 import StyledText from "./StyledText"
 import Ionaicons from '@expo/vector-icons/Ionicons'
 import theme from "../theme"
+import { Link } from "react-router-native"
 
-const NotesFolderItem = ({name, amount}) => {
+const NotesFolderItem = ({name, amount, to}) => {
+
+
     return(
-        <View style = {styles.container}>
-            <View style = {styles.header}>
+        <Link to = {to} style = {styles.container}  component = {TouchableOpacity}>
+          <>
+          <View style = {styles.header}>
                 <StyledText fontSize='h3'>{name}</StyledText>
                 <Ionaicons name="chevron-forward" style = {styles.icon}></Ionaicons>
             </View>
             <View>
                 <StyledText style = {styles.text} fontWeight='bold'>{amount}</StyledText>
             </View>
+          </>
             
-        </View>
+        </Link>
     )
 }
 const styles = StyleSheet.create({
