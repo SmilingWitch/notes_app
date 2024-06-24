@@ -1,17 +1,24 @@
-import { View, StyleSheet } from "react-native"
-import StyledText from "./StyledText"
+import { View, StyleSheet, TouchableOpacity } from "react-native"
 import Icon from '@expo/vector-icons/AntDesign'
+import Icon1 from '@expo/vector-icons/FontAwesome'
 import theme from "../theme"
 
 
-const Appbar = () => {
+const Appbar = ({navigation}) => {
     return(
         <View style = {styles.container}>
-            <Icon name = "home" style = {styles.icon}></Icon>
-            <View style = {styles.icon_pluss}>
+            <TouchableOpacity onPress = {() => navigation.navigate('NotesFolder')}>
+                <Icon1 name = "folder-o" style = {styles.icon}></Icon1>
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => navigation.navigate('')}>
+                <Icon name = "setting" style = {styles.icon}></Icon>
+            </TouchableOpacity>
+            <TouchableOpacity style = {styles.icon_pluss} onPress={() => navigation.navigate('Note', {name: "Untiteled Note", content: ""})}>
                 <Icon name = "plus" style = {styles.icon}></Icon>
-            </View>
-            
+            </TouchableOpacity>
+            <TouchableOpacity onPress = {() => navigation.navigate('')}>
+                <Icon1 name = "trash-o" style = {styles.icon}></Icon1>
+            </TouchableOpacity>
             <Icon name = "search1" style = {styles.icon}></Icon>
         </View>
     )
