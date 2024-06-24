@@ -1,14 +1,28 @@
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, TouchableOpacity } from "react-native"
 import StyledText from "./StyledText"
 import theme from "../theme"
 
 
-const CategoryItem = ({name, amount}) => {
+const CategoryItem = ({name, amount, navigation, active}) => {
+
+    const containerStyle = [
+        styles.container,
+        active && styles.containerActive
+    ]
+    const numberStyle = [
+        styles.number,
+        active && styles.numberActive 
+    ]
+
     return(
-        <View style = {styles.container}>
-            <StyledText >{name}</StyledText>
-            <View style = {styles.number} ><StyledText fontSize = 'small' style = {styles.text}>{amount}</StyledText></View>
-        </View>
+        <TouchableOpacity 
+            style = {containerStyle} 
+            onPress = {() => navigation.navigate('Notes', {name: name})}>
+            <StyledText color = { active && 'secundary'} >{name}</StyledText>
+            <View style = {numberStyle} ><StyledText fontSize = 'small' style = {styles.text}>{amount}</StyledText></View>
+        </TouchableOpacity>
+
+        
     )
 }
 
@@ -35,6 +49,13 @@ const styles = StyleSheet.create({
     },
     text: {
         color: theme.colors.primary
+    },
+    containerActive: {
+        backgroundColor: theme.colors.white,
+        color: theme.colors.textSecundary
+    },
+    numberActive: {
+        backgroundColor: theme.colors.lightGrey,
     }
 })
 
