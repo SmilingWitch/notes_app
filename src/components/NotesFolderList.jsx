@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native"
+import { FlatList, StyleSheet } from "react-native"
 import NotesFolder from "./NotesFolderItem"
 import NotesFolderItem from "./NotesFolderItem"
 import theme from "../theme"
@@ -33,26 +33,25 @@ const data = [
 
 
 
-const NotesFolderList = () => {
+const NotesFolderList = ({navigation}) => {
     
     const renderItem = ({item}) => (
-        <NotesFolderItem name = {item.name} amount = {item.amount} to = {'/notes'}></NotesFolderItem>
+        <NotesFolderItem name = {item.name} amount = {item.amount} to = {'/notes'} navigation = {navigation}></NotesFolderItem>
     )
 
 
     return(
-        
             <FlatList data = {data}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id}
-                style = {{paddingHorizontal: theme.padding}}>
-                
+                style = {styles}>
             </FlatList>
-        
-        
-
-        
     )
 }
+
+const styles = StyleSheet.create({
+    backgroundColor: theme.colors.primary,
+    paddingHorizontal: theme.padding
+})
 
 export default NotesFolderList
