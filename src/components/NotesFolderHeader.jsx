@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         flexDirection: 'row', 
-        paddingHorizontal: theme.padding
+        paddingHorizontal: theme.padding,
+        backgroundColor: theme.colors.primary
       },
       icon: {
         color: theme.colors.textPrimary,
