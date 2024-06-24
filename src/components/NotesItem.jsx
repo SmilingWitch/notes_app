@@ -2,12 +2,12 @@ import { View,StyleSheet, Dimensions, TouchableOpacity } from "react-native"
 import StyledText from "./StyledText"
 import theme from "../theme"
 import Icon from '@expo/vector-icons/AntDesign'
-import { Link } from "react-router-native"
+
 
 
 const NotesItem = ({id, to}) => {
     return(
-        <Link to = {to} style = {styles.container} component = {TouchableOpacity}>
+        <TouchableOpacity to = {to} style = {styles.container} >
             <>
                 <View style = {styles.header}>
                     <StyledText fontSize='h2' fontWeight='bold'>Name</StyledText>
@@ -22,7 +22,7 @@ const NotesItem = ({id, to}) => {
                 </View>
             </>
             
-        </Link>
+        </TouchableOpacity>
     )
 }
 
