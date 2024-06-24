@@ -36,7 +36,7 @@ const data = [
 const NotesFolderList = ({navigation}) => {
     
     const renderItem = ({item}) => (
-        <NotesFolderItem name = {item.name} amount = {item.amount} to = {'/notes'} navigation = {navigation}></NotesFolderItem>
+        <NotesFolderItem name = {item.name} amount = {item.amount} navigation = {navigation}></NotesFolderItem>
     )
 
 
