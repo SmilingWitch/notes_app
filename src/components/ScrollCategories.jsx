@@ -32,12 +32,23 @@ const data = [
 
 
 
-const ScrollCategories = () => {
+const ScrollCategories = ({route ,navigation}) => {
+
+    const { name } = route.params;
 
     const renderItem = ({item}) => (
-        <CategoryItem name = {item.name} amount = {item.amount}></CategoryItem>
-    )
+        <>
+        {console.log("ITEM",item.name)}
+        {console.log("ROUTE",route.path)}
+        <CategoryItem   name = {item.name} 
+                        amount = {item.amount} 
+                        navigation = {navigation} 
+                        active = {name === item.name}/>
+        </>
+        
 
+                        
+    )
 
     return(
         <FlatList
