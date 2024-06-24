@@ -7,7 +7,8 @@ const theme = {
         secundary: '#209ff0',
         white: "#fefefe",
         light: '80A0B5',
-        grey: '#272727'
+        grey: '#272727',
+        lightGrey: '#D2D2D2'
     },
     fontSize: {
         h1: 32,
@@ -22,7 +23,6 @@ const theme = {
         bold: '700'
     },
     padding: 10
-
 }
 
 
