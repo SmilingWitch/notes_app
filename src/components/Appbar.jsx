@@ -2,15 +2,12 @@ import { View, StyleSheet } from "react-native"
 import StyledText from "./StyledText"
 import Icon from '@expo/vector-icons/AntDesign'
 import theme from "../theme"
-import { Link } from "react-router-native"
+
 
 const Appbar = () => {
     return(
         <View style = {styles.container}>
-            <Link to = '/'>
-                <Icon name = "home" style = {styles.icon}></Icon>
-            </Link>
-            
+            <Icon name = "home" style = {styles.icon}></Icon>
             <View style = {styles.icon_pluss}>
                 <Icon name = "plus" style = {styles.icon}></Icon>
             </View>
