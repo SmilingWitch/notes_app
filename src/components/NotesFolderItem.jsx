@@ -5,10 +5,12 @@ import theme from "../theme"
 
 
 
-const NotesFolderItem = ({name, amount, to, navigation}) => {
+const NotesFolderItem = ({name, amount, navigation}) => {
 
     return(
-        <TouchableOpacity style = {styles.container}  onPress={() => navigation.navigate('Notes')}>
+        <TouchableOpacity style = {styles.container}  onPress={() => navigation.navigate('Notes', {
+          name: name
+        })}>
           <>
           <View style = {styles.header}>
                 <StyledText fontSize='h3'>{name}</StyledText>
