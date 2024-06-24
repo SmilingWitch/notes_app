@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet,Dimensions } from "react-native"
+import 'react-native-gesture-handler';
+import { View, StyleSheet} from "react-native"
 import Constants from 'expo-constants'
 import NotesFolder from "../pages/NotesFolder"
 import Notes from "../pages/Notes"
 import Note from "../pages/Note"
-import Appbar from "./Appbar"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -14,16 +14,18 @@ const Main = () => {
         <View style={styles.container}>
             <NavigationContainer>
                 <Stack.Navigator>
+                <Stack.Screen 
+                        name="Notes" 
+                        component={Notes} 
+                        initialParams={{ name: 'All'}}
+                        options={{ headerShown: false }} // Mostrar el AppBar
+                    />
                     <Stack.Screen 
                         name="NotesFolder"
                         component={NotesFolder} 
                         options={{ headerShown: false }} // Mostrar el AppBar
                     />
-                    <Stack.Screen 
-                        name="Notes" 
-                        component={Notes} 
-                        options={{ headerShown: false }} // Mostrar el AppBar
-                    />
+                    
                     <Stack.Screen 
                         name="Note" 
                         component={Note} 
@@ -31,7 +33,6 @@ const Main = () => {
                     />
                 </Stack.Navigator>
             </NavigationContainer>
-            <Appbar />
         </View>
     )
 }
