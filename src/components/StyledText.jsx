@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         
     },
     colorSecundary: {
-        color: theme.colors.textSecundary
+        color: theme.colors.primary
     },
     h1: {
         fontSize: theme.fontSize.h1
