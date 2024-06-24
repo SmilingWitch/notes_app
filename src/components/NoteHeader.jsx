@@ -1,14 +1,21 @@
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, TouchableOpacity } from "react-native"
 import StyledText from "./StyledText"
 import theme from "../theme"
 import Icon from '@expo/vector-icons/AntDesign'
 
-const NoteHeader = () => {
+const NoteHeader = ({navigation, route}) => {
+
+    const { name } = route.params;
+
+
     return(
         <View style = {styles.container}>
             <View style = {styles.name}>
-                <Icon name = "arrowleft" style = {styles.icon}></Icon>
-                <StyledText fontSize='h2' fontWeight='bold' style = {styles.text}>Untiteled Note</StyledText>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Icon name = "arrowleft" style = {styles.icon}></Icon>
+                </TouchableOpacity>
+                
+                <StyledText fontSize='h2' fontWeight='bold' style = {styles.text}>{name}</StyledText>
             </View>
             <View>
                 <Icon name = "check" style = {styles.icon}></Icon>
@@ -28,7 +35,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         color: theme.colors.textPrimary,
-        fontSize: theme.fontSize.h3
+        fontSize: theme.fontSize.h2
     },
     name: {
         flexDirection: 'row',
