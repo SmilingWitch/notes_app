@@ -5,23 +5,24 @@ import Icon from '@expo/vector-icons/AntDesign'
 
 
 
-const NotesItem = ({id, to}) => {
+const NotesItem = ({ id, navigation, name, content, date}) => {
     return(
-        <TouchableOpacity to = {to} style = {styles.container} >
-            <>
+        <TouchableOpacity style = {styles.container} onPress = {() => {navigation.navigate('Note', {name: name, content: content})}}>
+            <View>
                 <View style = {styles.header}>
-                    <StyledText fontSize='h2' fontWeight='bold'>Name</StyledText>
+                    <StyledText fontSize='h2' fontWeight='bold'>{name}</StyledText>
                     <Icon name="pushpino" style = {styles.icon}></Icon>
                 </View>
                 <View style = {styles.text}>
-                    <StyledText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa voluptatem facere qui suscipit architecto ipsam, consequuntur facilis voluptatibus sint accusantium iste inventore earum officiis! </StyledText> 
+                    <StyledText>{content}</StyledText> 
                 </View>
-                <View style = {styles.footer}>
-                    <StyledText fontSize='small'>07 APril 2024</StyledText>
-                    <Icon name="ellipsis1" style = {styles.icon}></Icon>
-                </View>
-            </>
-            
+
+            </View>
+                
+            <View style = {styles.footer}>
+                <StyledText fontSize='small'>{date}</StyledText>
+                <Icon name="ellipsis1" style = {styles.icon}></Icon>
+            </View>
         </TouchableOpacity>
     )
 }
@@ -30,14 +31,18 @@ const NotesItem = ({id, to}) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: theme.colors.grey,
-        minHeight: 200,
+        minHeight: 150,
+        maxHeight: 200,
         width: Dimensions.get('window').width / 2.2 ,
         marginBottom: 12,
         borderRadius: 20,
-        padding: 10
+        padding: 10,
+        justifyContent: 'space-between'
     },
     text : {
-        marginVertical: 10
+        marginVertical: 10,
+        minHeight: 80,
+        maxHeight: 100,
     },
     header: {
         flexDirection: 'row',
