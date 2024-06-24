@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
        justifyContent: 'space-between',
-       paddingHorizontal: theme.padding
+       paddingHorizontal: theme.padding,
+       backgroundColor: theme.colors.primary,
     }
 })
 
