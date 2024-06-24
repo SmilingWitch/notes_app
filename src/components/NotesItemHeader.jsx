@@ -1,17 +1,16 @@
-import { View, StyleSheet } from "react-native"
+import { View, StyleSheet, TouchableOpacity } from "react-native"
 import StyledText from "./StyledText"
 import Icon from '@expo/vector-icons/AntDesign'
 import theme from "../theme"
-import { Link } from "react-router-native"
 import ScrollCategories from "./ScrollCategories"
 
 const NotesItemHeader = () => {
     return(
-        <View >
+        <View style = {styles.container}>
             <View style = {styles.name}>
-                <Link to = '/'>
+                <TouchableOpacity to = '/'>
                     <Icon name = "arrowleft" style = {styles.icon}></Icon>
-                </Link>
+                </TouchableOpacity>
                 <StyledText fontSize='h2' fontWeight='bold' style = {styles.text}>Folder Name</StyledText> 
             </View>
             <View>
@@ -22,7 +21,9 @@ const NotesItemHeader = () => {
 }
 
 const styles = StyleSheet.create({
-
+    container: {
+        backgroundColor: theme.colors.primary,
+    },
     icon: {
         color: theme.colors.textPrimary,
         fontSize: theme.fontSize.h2
