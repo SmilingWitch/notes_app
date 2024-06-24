@@ -56,7 +56,8 @@ const ScrollCategories = () => {
 const styles = StyleSheet.create({
     container: {
         paddingBottom: 20,
-        paddingHorizontal: theme.padding
+        paddingHorizontal: theme.padding,
+        backgroundColor: theme.colors.primary,
     }
 })
 
