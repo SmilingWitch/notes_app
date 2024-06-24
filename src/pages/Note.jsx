@@ -4,13 +4,11 @@ import NoteHeader from "../components/NoteHeader"
 import NoteContent from "../components/NoteContent"
 
 
-const Note = () => {
+const Note = ({navigation, route}) => {
     return(
         <View style = {styles.container}>
-            <NoteHeader/>
-            <NoteContent/>
-            
-
+            <NoteHeader navigation = {navigation} route = {route}/>
+            <NoteContent route = {route}/>
         </View>
         
     )
@@ -18,8 +16,8 @@ const Note = () => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingHorizontal: theme.padding,
-        flex: 1
+        flex: 1,
+        backgroundColor: theme.colors.primary
     },
     
 })
