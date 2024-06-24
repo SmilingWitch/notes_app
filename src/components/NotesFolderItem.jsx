@@ -2,13 +2,13 @@ import { View, StyleSheet, TouchableOpacity, Dimensions} from "react-native"
 import StyledText from "./StyledText"
 import Ionaicons from '@expo/vector-icons/Ionicons'
 import theme from "../theme"
-import { Link } from "react-router-native"
 
-const NotesFolderItem = ({name, amount, to}) => {
 
+
+const NotesFolderItem = ({name, amount, to, navigation}) => {
 
     return(
-        <Link to = {to} style = {styles.container}  component = {TouchableOpacity}>
+        <TouchableOpacity style = {styles.container}  onPress={() => navigation.navigate('Notes')}>
           <>
           <View style = {styles.header}>
                 <StyledText fontSize='h3'>{name}</StyledText>
@@ -19,7 +19,7 @@ const NotesFolderItem = ({name, amount, to}) => {
             </View>
           </>
             
-        </Link>
+        </TouchableOpacity>
     )
 }
 const styles = StyleSheet.create({
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
             marginBottom: 10,
             padding: 20,
             justifyContent: 'space-between',
-            borderRadius: 20
+            borderRadius: 20,
         },
       header: {
         alignItems: 'center',
