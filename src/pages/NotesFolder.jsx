@@ -10,7 +10,7 @@ const NotesFolder = ({navigation, route}) => {
     return(
         <View style = {styles}>
             <NotesFolderHeader navigation = {navigation}  route = {route}/>
-            <NotesFolderList navigation = {navigation}  route = {route}/>
+            <NotesFolderList navigation = {navigation}  route = {route} touch = {true}/>
         </View>
         
     )
