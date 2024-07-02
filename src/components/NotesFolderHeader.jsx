@@ -15,7 +15,7 @@ const NotesFolderHeader = ({navigation}) => {
             <StyledText fontSize='h2' fontWeight='bold' style = {styles.text}>Folders</StyledText>
           </View>
             
-            <TouchableOpacity onPress = {() => navigation.navigate('Note')}>
+            <TouchableOpacity onPress = {() => navigation.navigate('ManageFolders')}>
               <Icon name="plus" style = {styles.icon}></Icon>
             </TouchableOpacity>
         </View>
