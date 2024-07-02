@@ -4,7 +4,7 @@ import Appbar from '../components/Appbar'
 import NotesList from "../components/NotesList"
 import NotesItemHeader from "../components/NotesItemHeader"
 import theme from "../theme"
-import DrowerNavigator from "../drower/DrowerNavigator"
+
 
 const Notes = ({route,navigation}) => {
 
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     container: {
      flex: 1,
      backgroundColor: theme.colors.primary
-    }
+    } 
    });
 
 export default Notes
