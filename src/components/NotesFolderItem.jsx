@@ -1,4 +1,4 @@
-import { View, StyleSheet, TouchableOpacity, Dimensions} from "react-native"
+import { View, StyleSheet, TouchableOpacity} from "react-native"
 import StyledText from "./StyledText"
 import Ionaicons from '@expo/vector-icons/Ionicons'
 import theme from "../theme"
@@ -8,16 +8,16 @@ import theme from "../theme"
 const NotesFolderItem = ({name, amount, navigation}) => {
 
     return(
-        <TouchableOpacity style = {styles.container}  onPress={() => navigation.navigate('Notes', {
+        <TouchableOpacity style = {styles.container} onPress={() => navigation.navigate('Notes', {
           name: name
         })}>
           <>
-          <View style = {styles.header}>
-                <StyledText fontSize='h3'>{name}</StyledText>
-                <Ionaicons name="chevron-forward" style = {styles.icon}></Ionaicons>
-            </View>
+          <View style = {styles.header}  >
+            <Ionaicons name="folder-open-outline" style = {styles.icon}></Ionaicons>
+            <StyledText >{name}</StyledText>    
+          </View>
             <View>
-                <StyledText style = {styles.text} fontWeight='bold'>{amount}</StyledText>
+                <StyledText style = {styles.text} fontSize = 'small' fontWeight='bold'>{amount}</StyledText>
             </View>
           </>
             
@@ -26,24 +26,24 @@ const NotesFolderItem = ({name, amount, navigation}) => {
 }
 const styles = StyleSheet.create({
         container: {
-            backgroundColor: theme.colors.grey,
-            height: 150,
             marginBottom: 10,
-            padding: 20,
-            justifyContent: 'space-between',
+            padding: 10,
             borderRadius: 20,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center'
         },
       header: {
         alignItems: 'center',
-        justifyContent: 'space-between',
         flexDirection: 'row'
       },
       icon: {
         color: theme.colors.textPrimary,
-        fontSize: theme.fontSize.h3
+        fontSize: theme.fontSize.h3,
+        marginRight:10
       },
       text: {
-        fontSize: 80,
+        color: theme.colors.lightGrey
     
       }
 })
