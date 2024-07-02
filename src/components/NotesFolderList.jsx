@@ -2,6 +2,7 @@ import { FlatList, StyleSheet } from "react-native"
 import NotesFolder from "./NotesFolderItem"
 import NotesFolderItem from "./NotesFolderItem"
 import theme from "../theme"
+import NotesFolderItemWithoutTouch from "./NotesFolderItemWithoutTouch"
 
 const data = [
     {
@@ -33,10 +34,11 @@ const data = [
 
 
 
-const NotesFolderList = ({navigation}) => {
+const NotesFolderList = ({navigation, touch}) => {
     
     const renderItem = ({item}) => (
-        <NotesFolderItem name = {item.name} amount = {item.amount} navigation = {navigation}></NotesFolderItem>
+        touch === true ? <NotesFolderItem name = {item.name} amount = {item.amount} navigation = {navigation}/>:
+                          <NotesFolderItemWithoutTouch name = {item.name} amount = {item.amount}/>
     )
 
 
