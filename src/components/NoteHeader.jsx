@@ -1,12 +1,16 @@
-import { View, StyleSheet, TouchableOpacity } from "react-native"
+import { View, StyleSheet, TouchableOpacity, TextInput } from "react-native"
 import StyledText from "./StyledText"
 import theme from "../theme"
 import Icon from '@expo/vector-icons/AntDesign'
+import { useState } from "react"
+import StyledTextInput from "./StyleTextInput"
 
 const NoteHeader = ({navigation, route}) => {
 
     const { name } = route.params;
+    const [header, setHeader] = useState(name)
 
+    console.log(header)
 
     return(
         <View style = {styles.container}>
@@ -14,8 +18,16 @@ const NoteHeader = ({navigation, route}) => {
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Icon name = "arrowleft" style = {styles.icon}></Icon>
                 </TouchableOpacity>
-                
-                <StyledText fontSize='h2' fontWeight='bold' style = {styles.text}>{name}</StyledText>
+
+                <StyledTextInput
+                    style={styles.input}
+                    name = 'header'
+                    value={header}
+                    multiline
+                    onChangeText={setHeader}
+                    fontSize='h2' fontWeight='bold'
+                />
+
             </View>
             <View>
                 <Icon name = "check" style = {styles.icon}></Icon>
@@ -35,7 +47,8 @@ const styles = StyleSheet.create({
     },
     icon: {
         color: theme.colors.textPrimary,
-        fontSize: theme.fontSize.h2
+        fontSize: theme.fontSize.h2,
+        marginRight: 15
     },
     name: {
         flexDirection: 'row',
