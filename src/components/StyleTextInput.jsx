@@ -1,4 +1,4 @@
-import { TextInput, StyleSheet } from "react-native"
+import { TextInput, StyleSheet, View } from "react-native"
 import theme from "../theme"
 import { useEffect, useRef } from "react";
 
@@ -27,14 +27,15 @@ const StyledTextInput = ({style = {}, error,color, fontSize, fontWeight,header, 
         style,
     ]
     return(
-        <TextInput 
-                  style = {inputStyles} 
+            <TextInput 
+                  style = {header ?  styles.notHeader: inputStyles } 
                   {...props} 
                   ref= {header && inputRef} 
                   editable 
                   multiline 
                   inputMode="text"
                   textAlignVertical="top"></TextInput>
+        
     )
 }
 
@@ -44,6 +45,12 @@ const styles = StyleSheet.create({
         borderColor: theme.colors.primary,
         fontSize: theme.fontSize.regular,
         color: theme.colors.textPrimary,
+     },
+     notHeader: {
+        borderColor: theme.colors.primary,
+        fontSize: theme.fontSize.regular,
+        color: theme.colors.textPrimary,
+        flex: 1
      },
      error: {
         borderColor: 'red'
